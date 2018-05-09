@@ -1,20 +1,20 @@
 {
     "name": "z-nomp",
     "version": "0.0.4",
-    "description": "Bitcoin Gold (Equihash) stratum mining pool based on NOMP",
+    "description": "Bitcoin Interest (Equihash) stratum mining pool based on NOMP",
     "keywords": [
         "stratum",
         "mining",
         "pool",
         "server",
         "poolserver",
-        "zclassic",
-        "zcash",
-        "equihash"
+        "equihash",
+	"bitcoin",
+	"interest"
     ],
-    "homepage": "https://github.com/zencashio/z-nomp",
+    "homepage": "https://github.com/BitcoinInterestOfficial/z-nomp-bci",
     "bugs": {
-        "url": "https://github.com/zencashio/z-nomp/issues"
+        "url": "https://github.com/BitcoinInterestOfficial/z-nomp-bci/issues"
     },
     "license": "MIT",
     "author": "Joshua Yabut",
@@ -23,7 +23,8 @@
         "sennevb",
         "Matthew Little",
         "vekexasia",
-        "TheSeven"
+        "TheSeven",
+	"fellu"
     ],
     "main": "init.js",
     "bin": {
@@ -31,7 +32,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/zencashio/z-nomp.git"
+        "url": "https://github.com/BitcoinInterestOfficial/z-nomp-bci.git"
     },
     "dependencies": {
         "async": "^2.5.0",
@@ -41,15 +42,17 @@
         "compression": "^1.7.1",
         "dateformat": "^2.2.0",
         "dot": "^1.1.2",
+        "equihashverify": "git+https://github.com/zencashofficial/equihashverify.git",
         "express": "^4.16.2",
         "extend": "^3.0.1",
         "mysql": "^2.15.0",
         "node-json-minify": "^1.0.0",
         "node-watch": "^0.5.5",
         "nonce": "^1.0.4",
+        "posix": "^4.1.1",
         "redis": "^2.8.0",
         "request": "^2.83.0",
-        "stratum-pool": "git+https://github.com/StarbuckBG/node-stratum-pool.git"
+        "stratum-pool": "git+https://github.com/BitcoinInterestOfficial/node-stratum-pool-bci.git"
     },
     "engines": {
         "node": ">=0.10"

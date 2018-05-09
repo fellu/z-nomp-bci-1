@@ -1,0 +1,16 @@
+{
+    "name": "Bitcoin Interest",
+    "symbol": "BCI",
+    "algorithm": "equihash",
+    "peerMagic": "ede4fe26",
+    
+    "payFoundersReward": true,
+    "percentFoundersReward": 8,
+    "maxFoundersRewardBlockHeight": 10000000,
+    "foundersRewardAddressChangeInterval": 10000000,
+	"vFoundersRewardAddress": [
+		"iHgcntCBzgkVfuWfKVq7gHzPzmp26uyScS",
+		"iHgcntCBzgkVfuWfKVq7gHzPzmp26uyScS"
+	]
+}
+

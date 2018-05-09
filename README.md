@@ -1,12 +1,12 @@
-# Zcash® and Zclassic - Node Open Mining Portal
+# Bitcoin Interest - Node Open Mining Portal
 
-**[Click here for the official - Zcash® Zclassic, Bitcoin Gold Stratum Mining Pool Installation Guide](https://zdeveloper.org/wiki:z-nomp_install)**
+**[Click here for the official - Zcash® Zclassic, Bitcoin Interest Stratum Mining Pool Installation Guide](https://zdeveloper.org/wiki:z-nomp_install)**
 
 This is a Equihash mining pool based off of Node Open Mining Portal.
 
 Donations for development are greatly appreciated!
-  * BTC: 12Yc3Ezayhnm4X9x3nxV7vWY1h2qpWgajc, 18vHMxVzotQ9EPyESrf7Z1hNM9AwJeVHgD
-  * ZCL: zcXDWbgReztLLXSTUMT2nEumiDM6zTzUXFb7vUnx9JNfJDVqbodyxwEQwgDkFw7Dp128tBU8n8rmVxT43DshmeTEM4LHcdz
+  * BTC: 3A9s85pR8KGESorKV46C6WjM3kXTzQTfGo
+  * BCI: iSUHXuxQgm88xnsj8pg8qyBN4G22NSNNar
 
 #### Production Usage Notice
 This is beta software. All of the following are things that can change and break an existing Z-NOMP setup: functionality of any feature, structure of configuration files and structure of redis data. If you use this software in production then *DO NOT* pull new code straight into production usage because it can and often will break your setup and require you to tweak things like config files or redis data. *Only tagged releases are considered stable.*
@@ -23,19 +23,9 @@ If your pool uses Z-NOMP let us know and we will list your website here.
 
 ### Some pools using Z-NOMP or node-stratum-module:
 
-http://pool.gold - Bitcoin Gold Pool
+https://pool.bci-server.com/ Official BCI Pool
 
-https://pool.cryptobroker.io/zcl Running MPOS and 0.5% of the fee goes to the Zclassic donation fund! 200+ blocks have been found as well! 
-
-http://luckpool.org Zcash Pool with Custom Frontend w/Miner's Jackpot
-
-http://zclmine.com/ Custom frontend
-
-http://zclassic.miningspeed.com Custom frontend and 0% fee
-
-https://zpool.it 0.5% fee
-
-http://miningpool.io/
+http://bci.altpool.pro/
 
 Usage
 =====
@@ -59,7 +49,7 @@ you are using - a good place to start with redis is [data persistence](http://re
 Follow the build/install instructions for your coin daemon. Your coin.conf file should end up looking something like this:
 ```
 daemon=1
-rpcuser=zclassicrpc
+rpcuser=bcirpc
 rpcpassword=securepassword
 rpcport=8232
 ```
@@ -82,14 +72,14 @@ Clone the repository and run `npm update` for all the dependencies to be install
 sudo apt-get install build-essential libsodium-dev npm
 sudo npm install n -g
 sudo n stable
-git clone https://github.com/poolgold/z-nomp-bitcoin-gold.git z-nomp-bitcoin-gold
-cd z-nomp-bitcoin-gold
+git clone https://github.com/BitcoinInterestOfficial/z-nomp-bci
+cd z-nomp-bci
 npm update
 npm install
 ```
 
 ##### Pool config
-Take a look at the example json file inside the `pool_configs` directory. Rename it to `zclassic.json` and change the
+Take a look at the example json file inside the `pool_configs` directory. Rename it to `bci.json` and change the
 example fields to fit your setup.
 
 ```
@@ -107,9 +97,9 @@ ie: Miner 1 mines at 0.1 difficulty and finds 10 shares, the pool sees it as 1 s
 ```
 node [path to cli.js] [coin name in config] [block hash symbol]
 ```
-Example: inside `zclassic.conf` add the line
+Example: inside `bitcoin.conf` add the line
 ```
-blocknotify=node /home/user/z-nomp/scripts/cli.js blocknotify zclassic %s
+blocknotify=node /home/user/z-nomp-bci/scripts/cli.js blocknotify zclassic %s
 ```
 
 Alternatively, you can use a more efficient block notify script written in pure C. Build and usage instructions
