@@ -8,8 +8,6 @@ var extend = require('extend');
 
 var redis = require('redis');
 
-const { spawn } = require('child_process');
-
 var PoolLogger = require('./libs/logUtil.js');
 var CliListener = require('./libs/cliListener.js');
 var PoolWorker = require('./libs/poolWorker.js');
@@ -516,33 +514,10 @@ var startProfitSwitch = function(){
 };
 
 
-var startProgpowWrapper = function(){
-    logger.debug('Master', 'ProgPoW-wrapper', 'Starting '+__dirname+'/node_modules/stratum-pool/wrapper/progpow_ethash_wrapper');
-    var progpow_wrapper = spawn(__dirname+'/node_modules/stratum-pool/wrapper/progpow_ethash_wrapper');
-
-    progpow_wrapper.stdout.on('data', function(data) {
-        logger.debug('Master', 'ProgPoW-wrapper', data.toString().trim());
-    });
-
-    progpow_wrapper.stderr.on('data', function(data) {
-        logger.error('Master', 'ProgPoW-wrapper', data.toString().trim());
-    });
-
-    progpow_wrapper.on('close', (code) => {
-        logger.error('Master', 'ProgPoW-wrapper', 'ProgPoW wrapper process died, spawning replacement...');
-        setTimeout(function(){
-             startProgpowWrapper();
-        }, 2000);
-    });
-};
-
-
 
 (function init(){
 
     poolConfigs = buildPoolConfigs();
-
-    startProgpowWrapper();
 
     spawnPoolWorkers();
 
